@@ -7,8 +7,8 @@ function PayoutCard({ orderCount, amount, aboutAmount }) {
   });
 
   return (
-    <div className="flex">
-      <div className="bg-[#146EB4] text-white border-[.4px] border-black p-5 rounded-md  hover:bg-blue-900 flex flex-col gap-2">
+    <div className="flex flex-col bg-[#146EB4] hover:bg-[#0E4F82] rounded-md">
+      <div className="bg-[#146EB4] text-white p-5 rounded-t-md  hover:bg-[#0E4F82] flex flex-col gap-2">
         <div className="flex gap-3 ">
           <div className="text-white text-sm">{aboutAmount}</div>
           <div className="inline-block align-baseline text-white ">
@@ -52,7 +52,9 @@ function PayoutCard({ orderCount, amount, aboutAmount }) {
             ) : null}
           </div>
         </div>
-        <div className="w-full bg-blue-900">Next Payment Date:</div>
+      </div>{" "}
+      <div className=" bg-[#0E4F82]  text-white  p-2 rounded-md ">
+        Next Payment Date:
       </div>
     </div>
   );
