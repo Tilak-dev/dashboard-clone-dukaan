@@ -1,8 +1,6 @@
 import React from "react";
 
-function Card() {
-  let orderCount = 13;
-  let amount = 92312.2;
+function Card({ orderCount, amount, aboutAmount }) {
   let formattedAmount = amount.toLocaleString("en-US", {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -12,7 +10,7 @@ function Card() {
     <div className="flex">
       <div className="bg-white border-[1px] border-black p-5 rounded-md  hover:bg-gray-300 flex flex-col gap-2">
         <div className="flex gap-3 ">
-          <div className="text-gray-700 text-sm">Amount Pending </div>
+          <div className="text-gray-700 text-sm">{aboutAmount}</div>
           <div className="inline-block align-baseline text-gray-500 ">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,23 +31,25 @@ function Card() {
         <div className="flex gap-4">
           <div className="text-2xl font-medium">₹{formattedAmount}</div>
           <div className="flex underline text-sm font-medium text-blue-600 ">
-            <div className="flex items-center text-bas">
-              {orderCount} Orders
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-4 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
-                />
-              </svg>
-            </div>
+            {orderCount ? (
+              <div className="flex items-center ">
+                {orderCount} Orders
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-4 h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
